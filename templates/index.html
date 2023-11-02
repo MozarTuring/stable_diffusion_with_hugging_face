@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOME</title>
+</head>
+<body>
+    <form action="/index" method="post">
+        <p>输入英文描述: <input type="text" name="username"></p>
+        <p><input type="submit" value='生成图片'></p>
+        {{msg | safe}}
+    </form>
+    <div id="dataid" d="{{data}}" style="display:none"></div>
+    <img src="">
+</body>
+<script>
+	var data = document.getElementById('dataid').getAttribute('d');	
+    dataJson=JSON.parse(data);
+    var img = document.getElementsByTagName("img")[0];
+    img.src = dataJson["file_path"]
+</script>
+</html>
